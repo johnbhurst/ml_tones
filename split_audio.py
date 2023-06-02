@@ -1,28 +1,38 @@
 #!/usr/bin/env python
 
+import argparse
+import os
 import numpy as np
 import sys
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
+parser = argparse.ArgumentParser(description='Split audio file into chunks based on silence')
+parser.add_argument('--keep_silence', type=int, default=100, help='Keep this much silence at the beginning and end of each chunk (in ms)')
+parser.add_argument('--min_silence_len', type=int, default=100, help='Minimum length of silence to split on (in ms)')
+parser.add_argument('--silence_thresh', type=int, default=-64, help='Threshold of silence to split on (in dBFS)')
+parser.add_argument('audio_files', nargs=argparse.REMAINDER, help='Audio files to split')
+args = parser.parse_args()
 
-# Load your audio file
-audio_file = sys.argv[1]
-base_filename = audio_file.split('.')[0]
-audio = AudioSegment.from_wav(audio_file)
+keep_silence = args.keep_silence
+min_silence_len = args.min_silence_len
+silence_thresh = args.silence_thresh
+audio_files = args.audio_files
 
-# Convert audio to numpy array (needed for scipy)
-samples = np.array(audio.get_array_of_samples())
+for audio_file in audio_files:
+    base_filename = audio_file.split('.')[0]
+    if not os.path.isdir(base_filename):
+        os.mkdir(base_filename)
 
-# Check if sample width is 2
-if audio.sample_width == 2:
-    samples = np.frombuffer(samples, dtype=np.int16)
-elif audio.sample_width == 4:
-    samples = np.frombuffer(samples, dtype=np.int32)
+    audio = AudioSegment.from_wav(audio_file)
+    samples = np.array(audio.get_array_of_samples())
 
-# Where the clip is silent, the sample value is zero. So we split the audio where sample is zero
-chunks = split_on_silence(audio, min_silence_len=100, silence_thresh=-64)
+    if audio.sample_width == 2:
+        samples = np.frombuffer(samples, dtype=np.int16)
+    elif audio.sample_width == 4:
+        samples = np.frombuffer(samples, dtype=np.int32)
 
-# Save each chunk to separate files
-for i, chunk in enumerate(chunks):
-    chunk.export(f"{base_filename}_{i}.wav", format="wav")
+    chunks = split_on_silence(audio, min_silence_len=min_silence_len, silence_thresh=silence_thresh, keep_silence=keep_silence)
+
+    for i, chunk in enumerate(chunks):
+        chunk.export(f"{base_filename}/{i+1}.wav", format="wav")
