@@ -35,4 +35,5 @@ for audio_file in audio_files:
     chunks = split_on_silence(audio, min_silence_len=min_silence_len, silence_thresh=silence_thresh, keep_silence=keep_silence)
 
     for i, chunk in enumerate(chunks):
+        print(f"Chunk {i+1} duration: {chunk.duration_seconds:.2f} seconds")
         chunk.export(f"{base_filename}/{i+1}.wav", format="wav")
