@@ -8,10 +8,10 @@ from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
 parser = argparse.ArgumentParser(description='Split audio file into chunks based on silence')
-parser.add_argument('--keep_silence', type=int, default=100, help='Keep this much silence at the beginning and end of each chunk (in ms)')
-parser.add_argument('--min_duration', type=float, default=0.5, help='Minimum duration of each chunk (in seconds)')
-parser.add_argument('--min_silence_len', type=int, default=100, help='Minimum length of silence to split on (in ms)')
-parser.add_argument('--silence_thresh', type=int, default=-64, help='Threshold of silence to split on (in dBFS)')
+parser.add_argument('--keep-silence', type=int, default=100, help='Keep this much silence at the beginning and end of each chunk (in ms)')
+parser.add_argument('--min-duration', type=float, default=0.5, help='Minimum duration of each chunk (in seconds)')
+parser.add_argument('--min-silence-len', type=int, default=100, help='Minimum length of silence to split on (in ms)')
+parser.add_argument('--silence-thresh', type=int, default=-64, help='Threshold of silence to split on (in dBFS)')
 parser.add_argument('audio_files', nargs=argparse.REMAINDER, help='Audio files to split')
 args = parser.parse_args()
 
