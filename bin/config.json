@@ -1,0 +1,22 @@
+[
+    {"filename":"data/Voice_00_Piano_Sustained.wav", "voice_number": 0, "voice_name": "Piano", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_01_FlangePiano_Sustained.wav", "voice_number": 1, "voice_name": "Flange Piano", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_02_HonkyTonkPiano_Sustained.wav", "voice_number": 2, "voice_name": "Honky Tonk Piano", "sustained": true, "min_duration": 0.8},
+    {"filename":"data/Voice_03_ElectricPiano1_Sustained.wav", "voice_number": 3, "voice_name": "Electric Piano 1", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_04_ElectricPiano2_Sustained.wav", "voice_number": 4, "voice_name": "Electric Piano 2", "sustained": true, "min_duration": 0.6},
+    {"filename":"data/Voice_05_ElectricPiano3_Sustained.wav", "voice_number": 5, "voice_name": "Electric Piano 3", "sustained": true, "min_duration": 0.6},
+    {"filename":"data/Voice_06_Harpsichord1_Sustained.wav", "voice_number": 6, "voice_name": "Harpsichord 1", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_07_Harpsichord2_Sustained.wav", "voice_number": 7, "voice_name": "Harpsichord 2", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_08_Clavi_Sustained.wav", "voice_number": 8, "voice_name": "Clavi", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_09_Celesta_Sustained.wav", "voice_number": 9, "voice_name": "Celesta", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_10_PipeOrgan1_Sustained.wav", "voice_number": 10, "voice_name": "PipeOrgan 1", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_11_PipeOrgan2_Sustained.wav", "voice_number": 11, "voice_name": "PipeOrgan 2", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_12_ElectricOrgan1_Sustained.wav", "voice_number": 12, "voice_name": "Electric Organ 1", "sustained": true, "min_duration": 0.6},
+    {"filename":"data/Voice_13_ElectricOrgan2_Sustained.wav", "voice_number": 13, "voice_name": "Electric Organ 2", "sustained": true, "min_duration": 0.9},
+    {"filename":"data/Voice_14_ElectricOrgan3_Sustained.wav", "voice_number": 14, "voice_name": "Electric Organ 3", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_15_ElectricOrgan4_Sustained.wav", "voice_number": 15, "voice_name": "Electric Organ 4", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_16_Accordion1_Sustained.wav", "voice_number": 16, "voice_name": "Accordion 1", "sustained": true, "min_duration": 0.5},
+    {"filename":"data/Voice_17_Accordion2_Sustained.wav", "voice_number": 17, "voice_name": "Accordion 2", "sustained": true, "min_duration": 0.8},
+    {"filename":"data/Voice_18_ElectricGuitar1_Sustained.wav", "voice_number": 18, "voice_name": "Electric Guitar 1", "sustained": true, "min_duration": 0.9},
+    {"filename":"data/Voice_19_ElectricGuitar2_Sustained.wav", "voice_number": 19, "voice_name": "Electric Guitar 2", "sustained": true, "min_duration": 0.5}
+]
