@@ -13,10 +13,13 @@
 
 # 2023-06-05
 
-* Re-export Audacity projects with 32-bit float samples
-* Expand split_tones.py to support config file of parameters
-* Install terraform
-* Create GCP project for ml_tones
-* Create storage bucket for ml_tones
+* Re-export Audacity projects with 32-bit float samples              done
+* Program to analyze the min_duration parameter                      done
+* Program to demonstrate JSON config file                            done
+* Expand split_tones.py to support config file of parameters         done
+* Redo spreadsheet of all clip data                                  done
+* Install terraform                                                  done
+* Create GCP project for ml_tones                                    done
+* Create storage bucket for ml_tones                                 done
 * Push raw data to DVC
 
