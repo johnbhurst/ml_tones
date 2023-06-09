@@ -10,6 +10,8 @@ parser = argparse.ArgumentParser(description="Plot a portion of a WAV file")
 parser.add_argument("filename", help="The WAV file to read")
 parser.add_argument("--startMs", type=int, default=0, help="The start time in milliseconds")
 parser.add_argument("--endMs", type=int, default=None, help="The end time in milliseconds")
+parser.add_argument("--width", type=float, default=12, help="Width of the plot")
+parser.add_argument("--height", type=float, default=8, help="Height of the plot")
 args = parser.parse_args()
 
 # Read the WAV file
@@ -26,7 +28,7 @@ data_to_plot = data[start_sample:end_sample]
 times = np.arange(start_sample, start_sample + len(data_to_plot)) / float(sample_rate)
 
 # Create the plot
-plt.figure(figsize=(10, 4))
+plt.figure(figsize=(args.width, args.height))
 plt.plot(times, data_to_plot)
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
