@@ -6,6 +6,7 @@ stages:
     cmd: bin/split_tones.py data/raw_voices/*
     deps:
       - data/raw_voices/
+      - bin/split_tones.py
     outs:
       - data/raw_tones/:
           cache: false
