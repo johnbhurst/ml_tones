@@ -1,0 +1,5 @@
+outs:
+- md5: e7e721aa8b2b155417646006bc936c17.dir
+  size: 998298692
+  nfiles: 20
+  path: raw_voices

@@ -1,0 +1,4 @@
+[core]
+    remote = gs-remote
+['remote "gs-remote"']
+    url = gs://johnbhurst-ml-tones-dvc
