@@ -31,13 +31,6 @@ for audio_file in args.audio_files:
         os.mkdir(base_filename)
 
     audio = AudioSegment.from_wav(audio_file)
-    samples = np.array(audio.get_array_of_samples())
-
-    if audio.sample_width == 2:
-        samples = np.frombuffer(samples, dtype=np.int16)
-    elif audio.sample_width == 4:
-        samples = np.frombuffer(samples, dtype=np.int32)
-
     chunks = split_on_silence(audio, min_silence_len=min_silence_len, silence_thresh=silence_thresh, keep_silence=keep_silence)
     midi_no = 36
     for i, chunk in enumerate(chunks):
