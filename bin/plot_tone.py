@@ -7,14 +7,15 @@ from scipy.io import wavfile
 import os
 
 # Set up command-line argument parsing
-parser = argparse.ArgumentParser(description="Plot a portion of a WAV file")
-parser.add_argument("filenames", nargs="+", help="The WAV files to read")
-parser.add_argument("--startMs", type=int, default=0, help="The start time in milliseconds")
-parser.add_argument("--endMs", type=int, default=None, help="The end time in milliseconds")
+parser = argparse.ArgumentParser(description="Plot the waveform of audio clips.")
+parser.add_argument("filenames", nargs='+', help="The audio files to plot")
+parser.add_argument("--startMs", type=int, default=0, help="Start time in milliseconds")
+parser.add_argument("--endMs", type=int, default=None, help="End time in milliseconds")
 parser.add_argument("--width", type=float, default=10, help="Width of the plot")
 parser.add_argument("--height", type=float, default=4, help="Height of the plot")
 parser.add_argument("--nodisplay", action='store_true', help="Do not display the plot")
 parser.add_argument("--savefile", nargs='?', const=True, default=False, help="Save the plot to a file")
+parser.add_argument("--savedir", type=str, help="The directory to save the plot to")
 args = parser.parse_args()
 
 # Process each file
@@ -42,10 +43,17 @@ for filename in args.filenames:
 
     # Save the plot to a file if requested
     if args.savefile is not False:
-        save_filename = args.savefile
         if args.savefile is True:
             base, ext = os.path.splitext(filename)
+            base = os.path.basename(base)
             save_filename = f"{base}_{args.startMs}ms_{args.endMs}ms.png"
+        else:
+            save_filename = args.savefile
+        if args.savedir is None:
+            save_dir = os.path.dirname(filename)
+        else:
+            save_dir = args.savedir
+        save_filename = os.path.join(save_dir, save_filename)
         plt.savefig(save_filename)
 
     # Display the plot, unless suppressed
