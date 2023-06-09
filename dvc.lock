@@ -3,6 +3,9 @@ stages:
   split_tones:
     cmd: bin/split_tones.py data/raw_voices/*
     deps:
+    - path: bin/split_tones.py
+      md5: 9b49ffb3e5fccd10ea5339601bd88c37
+      size: 1977
     - path: data/raw_voices/
       md5: e7e721aa8b2b155417646006bc936c17.dir
       size: 998298692
