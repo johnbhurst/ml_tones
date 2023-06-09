@@ -19,6 +19,7 @@ parser.add_argument('audio_files', nargs=argparse.REMAINDER, help='Audio files t
 args = parser.parse_args()
 
 for audio_file in args.audio_files:
+    print(audio_file)
     conf = [rec for rec in config if rec['filename'] == audio_file] or [{}]
     keep_silence = conf[0].get('keep_silence', args.keep_silence)
     min_duration = conf[0].get('min_duration', args.min_duration)
