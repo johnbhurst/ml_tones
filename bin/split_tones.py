@@ -3,8 +3,6 @@
 import argparse
 import json
 import os
-import numpy as np
-from numpy.fft import rfft, rfftfreq
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
@@ -36,15 +34,4 @@ for audio_file in args.audio_files:
     for i, chunk in enumerate(chunks):
         if chunk.duration_seconds > min_duration:
             chunk.export(f"{base_filename}/{midi_no}.wav", format="wav")
-
-            chunk_samples = np.array(chunk.get_array_of_samples())
-            N = len(chunk_samples)
-            yf = rfft(chunk_samples)
-            xf = rfftfreq(N, 1 / audio.frame_rate)
-
-            # Find the peak frequency
-            idx = np.argmax(np.abs(yf))
-            freq = xf[idx]
-
-            print(f"{midi_no},{chunk.duration_seconds:.2f},{freq:.2f}")
             midi_no += 1
