@@ -1,0 +1,11 @@
+# John Hurst (john.b.hurst@gmail.com)
+# 2023-06-10
+
+stages:
+  split_tones:
+    cmd: bin/split_tones.py data/raw_voices/*
+    deps:
+      - data/raw_voices/
+    outs:
+      - data/raw_tones/:
+          cache: false

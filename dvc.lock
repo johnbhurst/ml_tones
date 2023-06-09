@@ -1,0 +1,14 @@
+schema: '2.0'
+stages:
+  split_tones:
+    cmd: bin/split_tones.py data/raw_voices/*
+    deps:
+    - path: data/raw_voices/
+      md5: e7e721aa8b2b155417646006bc936c17.dir
+      size: 998298692
+      nfiles: 20
+    outs:
+    - path: data/raw_tones/
+      md5: 3fefa119e3e09682069abc72c8fdc266.dir
+      size: 630499108
+      nfiles: 1234
