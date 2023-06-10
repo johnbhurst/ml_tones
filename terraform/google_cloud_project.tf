@@ -53,6 +53,15 @@ resource "google_storage_bucket" "johnbhurst_ml_tones_dvc_bucket" {
     }
 }
 
+resource "google_storage_bucket_iam_binding" "johnbhurst_ml_tones_dvc_bucket_public_read_binding" {
+  bucket = google_storage_bucket.johnbhurst_ml_tones_dvc_bucket.name
+  role   = "roles/storage.objectViewer"
+
+  members = [
+    "allUsers",
+  ]
+}
+
 output "bucket_url" {
     value = "gs://${google_storage_bucket.johnbhurst_ml_tones_dvc_bucket.name}"
 }
