@@ -20,7 +20,7 @@ for raw_tones_folder in args.raw_tones_folders:
     csv_filename = args.save_dir + "/" + os.path.basename(os.path.normpath(raw_tones_folder)) + ".csv"
     with open(csv_filename, "w") as f:
         print("filename,duration,frequency", file=f)
-        for filename in os.listdir(raw_tones_folder):
+        for filename in sorted(os.listdir(raw_tones_folder)):
             if filename.endswith(".wav"):
                 midi_no = int(filename.split('.')[0])
                 audio = AudioSegment.from_wav(raw_tones_folder + "/" + filename)
@@ -34,11 +34,11 @@ for raw_tones_folder in args.raw_tones_folders:
                 midi_nos.append(midi_no)
                 freqs.append(freq)
 
-    png_filename = args.save_dir + "/" + os.path.basename(os.path.normpath(raw_tones_folder)) + ".png"
+    img_filename = args.save_dir + "/" + os.path.basename(os.path.normpath(raw_tones_folder)) + ".svg"
     plt.plot(midi_nos, freqs, 'o')
     plt.xlabel('MIDI number')
     plt.ylabel('Frequency (Hz)')
-    plt.savefig(png_filename)
+    plt.savefig(img_filename)
     plt.close()
 
 

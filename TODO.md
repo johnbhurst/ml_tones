@@ -29,6 +29,12 @@
 * DVC pipeline stage to generate tone clips for each voice           done
 * DVC pipeline stage to generate summary stats and freq analysis     done
 * DVC pipeline stage to generate waveform graphs for each clip       done
+
+# 2023-06-11
+
+* Fix bug in split_tones.py where not using min_duration             done
+* Fix ordering in voice_stats CSV output                             done
+* Change PNG image output to SVG                                     done
+* What to do about ffmpeg requirement?                               done
 * DVC pipeline stage to generate HTML report?
-* What to do about ffmpeg requirement?
 * Any way to avoid Google API quota warnings?
