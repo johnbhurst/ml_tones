@@ -1,8 +1,8 @@
 .terraform.lock.hcl
 .terraform/
-.venv/
 bin/__pycache__/
 secrets.auto.tfvars
 terraform.plan
 terraform.tfstate
 terraform.tfstate.backup
+venv/
