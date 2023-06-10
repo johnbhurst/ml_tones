@@ -1,24 +1,44 @@
 #!/usr/bin/env python
 
 import argparse
+import matplotlib.pyplot as plt
 import numpy as np
+import os
 from numpy.fft import rfft, rfftfreq
 from pydub import AudioSegment
 
 parser = argparse.ArgumentParser(description='Generate stats for audio files')
-parser.add_argument('audio_files', nargs=argparse.REMAINDER, help='Audio files to analyze')
+parser.add_argument('--save-dir', type=str, default='data/voice_stats', help='Directory to save stats and graphs to')
+parser.add_argument('raw_tones_folders', nargs=argparse.REMAINDER, help='Folders of tone WAVs to analyze')
 args = parser.parse_args()
 
-for audio_file in args.audio_files:
-    audio = AudioSegment.from_wav(audio_file)
-    samples = np.array(audio.get_array_of_samples())
-    N = len(samples)
-    yf = rfft(samples)
-    xf = rfftfreq(N, 1 / audio.frame_rate)
+os.makedirs(args.save_dir, exist_ok=True)
+for raw_tones_folder in args.raw_tones_folders:
+    midi_nos = []
+    freqs = []
+    print(raw_tones_folder)
+    csv_filename = args.save_dir + "/" + os.path.basename(os.path.normpath(raw_tones_folder)) + ".csv"
+    with open(csv_filename, "w") as f:
+        print("filename,duration,frequency", file=f)
+        for filename in os.listdir(raw_tones_folder):
+            if filename.endswith(".wav"):
+                midi_no = int(filename.split('.')[0])
+                audio = AudioSegment.from_wav(raw_tones_folder + "/" + filename)
+                samples = np.array(audio.get_array_of_samples())
+                N = len(samples)
+                yf = rfft(samples)
+                xf = rfftfreq(N, 1 / audio.frame_rate)
+                idx = np.argmax(np.abs(yf))
+                freq = xf[idx]
+                print(f"{midi_no},{audio.duration_seconds:.2f},{freq:.2f}", file=f)
+                midi_nos.append(midi_no)
+                freqs.append(freq)
 
-    # Find the peak frequency
-    idx = np.argmax(np.abs(yf))
-    freq = xf[idx]
+    png_filename = args.save_dir + "/" + os.path.basename(os.path.normpath(raw_tones_folder)) + ".png"
+    plt.plot(midi_nos, freqs, 'o')
+    plt.xlabel('MIDI number')
+    plt.ylabel('Frequency (Hz)')
+    plt.savefig(png_filename)
+    plt.close()
 
-    print(f"{audio_file},{audio.duration_seconds:.2f},{freq:.2f}")
 

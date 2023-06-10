@@ -10,3 +10,12 @@ stages:
     outs:
       - data/raw_tones/:
           cache: false
+
+  voice_stats:
+    cmd: bin/voice_stats.py data/raw_tones/*
+    deps:
+      - data/raw_tones/
+      - bin/voice_stats.py
+    outs:
+      - data/voice_stats/:
+          cache: false

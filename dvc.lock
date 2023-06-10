@@ -15,3 +15,18 @@ stages:
       md5: 3fefa119e3e09682069abc72c8fdc266.dir
       size: 630499108
       nfiles: 1234
+  voice_stats:
+    cmd: bin/voice_stats.py data/raw_tones/*
+    deps:
+    - path: bin/voice_stats.py
+      md5: 8190699bd6cbb2c686c2e44129138f42
+      size: 1751
+    - path: data/raw_tones/
+      md5: 3fefa119e3e09682069abc72c8fdc266.dir
+      size: 630499108
+      nfiles: 1234
+    outs:
+    - path: data/voice_stats/
+      md5: 1469397b4edb7e274532b30ece410bab.dir
+      size: 403020
+      nfiles: 40
