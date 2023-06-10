@@ -4,6 +4,8 @@ This is a toy project to explore Machine Learning, using audio tones.
 
 # Getting Started
 
+TODO: Prerequisites: Git, Python3, ffmpeg?
+
 ## Check out the project
 
 Check out the project from GitHub:

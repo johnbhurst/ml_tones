@@ -30,3 +30,5 @@
 * DVC pipeline stage to generate summary stats and freq analysis     done
 * DVC pipeline stage to generate waveform graphs for each clip       done
 * DVC pipeline stage to generate HTML report?
+* What to do about ffmpeg requirement?
+* Any way to avoid Google API quota warnings?
