@@ -30,3 +30,18 @@ stages:
       md5: 1469397b4edb7e274532b30ece410bab.dir
       size: 403020
       nfiles: 40
+  tone_waveforms:
+    cmd: bin/tone_waveforms.py data/raw_tones/*
+    deps:
+    - path: bin/tone_waveforms.py
+      md5: 85bba1a576c8c9b76ebe831151cbde18
+      size: 1774
+    - path: data/raw_tones/
+      md5: 3fefa119e3e09682069abc72c8fdc266.dir
+      size: 630499108
+      nfiles: 1234
+    outs:
+    - path: data/tone_waveforms/
+      md5: 8cdf8730de1d9c9ec9969a3d5da9ace6.dir
+      size: 189128466
+      nfiles: 3702

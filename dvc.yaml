@@ -19,3 +19,12 @@ stages:
     outs:
       - data/voice_stats/:
           cache: false
+
+  tone_waveforms:
+    cmd: bin/tone_waveforms.py data/raw_tones/*
+    deps:
+      - data/raw_tones/
+      - bin/tone_waveforms.py
+    outs:
+      - data/tone_waveforms/:
+          cache: false

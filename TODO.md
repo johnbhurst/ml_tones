@@ -28,5 +28,5 @@
 * Push raw data to DVC                                               done
 * DVC pipeline stage to generate tone clips for each voice           done
 * DVC pipeline stage to generate summary stats and freq analysis     done
-* DVC pipeline stage to generate waveform graphs for each clip
+* DVC pipeline stage to generate waveform graphs for each clip       done
 * DVC pipeline stage to generate HTML report?
