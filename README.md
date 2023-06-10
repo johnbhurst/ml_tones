@@ -4,46 +4,55 @@ This is a toy project to explore Machine Learning, using audio tones.
 
 # Getting Started
 
-TODO: Prerequisites: Git, Python3, ffmpeg?
+This is a quick start to clone the project and run it. More details are below.
 
-## Check out the project
+These are the prerequisites:
 
-Check out the project from GitHub:
+* Git
+* Python 3
+* ffmpeg
+
+Here are the steps to clone the project and run it:
 
 ```bash
 git clone git@github.com:johnbhurst/ml_tones.git
-```
-
-## Set up your Python Virtual Environment
-
-After cloning the project, create a Python virtual environment and install the required packages:
-
-```bash
 cd ml_tones
 python3 -m venv venv
 source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
+dvc pull
+dvc repro
 ```
 
-## Pull the data using DVC
+# Python Virtual Environment and DVC
 
-The data is stored in a Google Cloud Storage bucket. The [DVC](https://dvc.org/) tool is installed in the virtual environment. Use DVC to pull the data from the bucket:
+This project uses Python and [DVC](https://dvc.org/).
+The libraries and tools, including DVC, are installed in a Python virtual environment.
+The first time you clone the project, you need to create the virtual environment and install the libraries and tools, by following the steps in ``Getting Started`` above.
+Afterwards, you can activate the virtual environment and run the project:
 
 ```bash
+cd ml_tones
+source venv/bin/activate
 dvc pull
+# ... etc
 ```
 
-(The raw WAV data total about 1GB, so this may take a while.)
+DVC serves two purposes:
 
-The raw WAV data are now in the [data/raw_voices](`data/raw_voices`) directory:
+* It manages the data files, which are stored in a Google Cloud Storage bucket.
+* It manages the pipeline, which is defined in the `dvc.yaml` file.
+
+The Google Cloud Storage bucket is public, so you don't need to authenticate to access the data files.
+However, you may see a warning about exceeding the Google API quota.
+This is because DVC uses the Google API to access the bucket.
+You can ignore the warning.
+
+DVC pulls the data files from the bucket to the [data/raw_voices](`data/raw_voices`) directory:
 
 ![Raw voices](doc/images/tree_data_raw_voices.png)
 
-## Run the pipeline using DVC
+You can explore the pipeline by viewing the `dvc.yaml` file.
+You can also get a visual representation of the pipeline by running `dvc dag`.
 
-The pipeline is defined in the `dvc.yaml` file. Run the pipeline using DVC:
-
-```bash
-dvc repro
-```
