@@ -4,17 +4,17 @@ stages:
     cmd: bin/split_tones.py data/raw_voices/*
     deps:
     - path: bin/split_tones.py
-      md5: 9b49ffb3e5fccd10ea5339601bd88c37
-      size: 1977
+      md5: 93df54a69faf3eeb4fb36965960191a1
+      size: 1975
     - path: data/raw_voices/
       md5: e7e721aa8b2b155417646006bc936c17.dir
       size: 998298692
       nfiles: 20
     outs:
     - path: data/raw_tones/
-      md5: 0cbbb2187ec8f8fb114fdf842278dc22.dir
-      size: 628843852
-      nfiles: 1220
+      md5: 4ea10e43d4e9954fdb5ce5ca7d346048.dir
+      size: 585199152
+      nfiles: 1212
   voice_stats:
     cmd: bin/voice_stats.py data/raw_tones/*
     deps:
@@ -22,26 +22,26 @@ stages:
       md5: f1f7534b1ca4e99cd0af4be0f680d06e
       size: 1759
     - path: data/raw_tones/
-      md5: 0cbbb2187ec8f8fb114fdf842278dc22.dir
-      size: 628843852
-      nfiles: 1220
+      md5: 4ea10e43d4e9954fdb5ce5ca7d346048.dir
+      size: 585199152
+      nfiles: 1212
     outs:
     - path: data/voice_stats/
-      md5: 87f8fee56ff91d0fb785b6f45622e4ea.dir
-      size: 584795
+      md5: a43ef6b8012e08372d249f14d36919ac.dir
+      size: 581181
       nfiles: 40
   tone_waveforms:
     cmd: bin/tone_waveforms.py data/raw_tones/*
     deps:
     - path: bin/tone_waveforms.py
-      md5: 85bba1a576c8c9b76ebe831151cbde18
-      size: 1774
+      md5: 9b82a26ea38674ce454589e45d5fd056
+      size: 1777
     - path: data/raw_tones/
-      md5: 0cbbb2187ec8f8fb114fdf842278dc22.dir
-      size: 628843852
-      nfiles: 1220
+      md5: 4ea10e43d4e9954fdb5ce5ca7d346048.dir
+      size: 585199152
+      nfiles: 1212
     outs:
     - path: data/tone_waveforms/
-      md5: 3c243ab5a71ff94169b4d128f6f6b5d9.dir
-      size: 187306711
-      nfiles: 3660
+      md5: 9b5e3d545d70e6b4cb7e1b77597bab20.dir
+      size: 254858892
+      nfiles: 3636

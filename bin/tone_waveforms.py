@@ -28,9 +28,9 @@ def process_folder(folder, save_dir):
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
 
-        plot_waveform(start_data, sr, os.path.join(save_dir, file_name + '_start.png'))
-        plot_waveform(mid_data, sr, os.path.join(save_dir, file_name + '_mid.png'))
-        plot_waveform(end_data, sr, os.path.join(save_dir, file_name + '_end.png'))
+        plot_waveform(start_data, sr, os.path.join(save_dir, file_name + '_1start.png'))
+        plot_waveform(mid_data, sr, os.path.join(save_dir, file_name + '_2mid.png'))
+        plot_waveform(end_data, sr, os.path.join(save_dir, file_name + '_3end.png'))
 
 def main():
     parser = argparse.ArgumentParser(description='Plot waveforms of audio files in a directory.')
