@@ -36,5 +36,11 @@
 * Fix ordering in voice_stats CSV output                             done
 * Change PNG image output to SVG                                     done
 * What to do about ffmpeg requirement?                               done
-* DVC pipeline stage to generate HTML report?
+
+# 2023-06-20
+
+* DVC pipeline stage to generate HTML report?                        done
+
+# 2023-07-02
+
 * Any way to avoid Google API quota warnings?

@@ -28,3 +28,21 @@ stages:
     outs:
       - data/tone_waveforms/:
           cache: false
+
+  voice_reports:
+    cmd: bin/voice_reports.py data/tone_waveforms/Voice_*
+    deps:
+      - data/tone_waveforms/
+      - bin/voice_reports.py
+    outs:
+      - data/reports/voice_reports/:
+          cache: false
+
+  tone_reports:
+    cmd: bin/tone_reports.py data/tone_waveforms/Voice_*
+    deps:
+      - data/tone_waveforms/
+      - bin/tone_reports.py
+    outs:
+      - data/reports/tone_reports/:
+          cache: false
